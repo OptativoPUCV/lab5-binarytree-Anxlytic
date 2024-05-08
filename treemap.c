@@ -75,7 +75,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
                     return;
                 }
             }
-            aux = (tree->lower_than(key, aux->pair->key) == 1) ? aux->left 
+            aux = (tree->lower_than(key, aux->pair->key) == 1) ? aux->left; 
         }
 }
 
