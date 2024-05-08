@@ -127,6 +127,33 @@ void removeNode(TreeMap * tree, TreeNode* node)
                 }
             }
         }
+        else
+        {
+            if (node->right == NULL)
+            {
+                if (node->parent == NULL)
+                {
+                    tree->root = node->left;
+                }
+                else
+                {
+                    if (node->parent->left == node)
+                    {
+                        node->parent->left = node->left;
+                    }
+                }
+            }
+            else
+            {
+                TreeNode * min = minimum(node->right);
+                {
+                    node->pair->key = min->pair->key;
+                    node->pair->value = min->pair->value;
+
+                }
+                
+            }
+        }
     }
 }
 
