@@ -202,7 +202,7 @@ Pair * upperBound(TreeMap * tree, void* key)
             aux = aux->right;
         }
     }
-    return result;
+    return ub;
     if (ub != NULL)
     {
         tree->current = ub;
