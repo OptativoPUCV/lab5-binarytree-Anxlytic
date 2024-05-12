@@ -230,6 +230,25 @@ Pair * firstTreeMap(TreeMap * tree)
     
 }
 
-Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+Pair * nextTreeMap(TreeMap * tree) 
+{
+    TreeNode * current = tree->current;
+
+    // Caso 1: Si el nodo tiene un subárbol derecho, el sucesor es el mínimo del subárbol derecho
+    if (current->right != NULL) {
+        tree->current = minimum(current->right);
+        return tree->current->pair;
+        }
+
+    // Caso 2: Si el nodo no tiene subárbol derecho, el sucesor es el primer ancestro derecho
+    TreeNode * parent = current->parent;
+    while (parent != NULL && current == parent->right) {
+        current = parent;
+        parent = parent->parent;
+    }
+
+    // parent es el siguiente nodo (sucesor), o NULL si current era el máximo nodo
+    tree->current = parent;
+    return (parent != NULL) ? parent->pair : NULL;
+
 }
