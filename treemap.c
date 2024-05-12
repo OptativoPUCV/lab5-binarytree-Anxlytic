@@ -193,10 +193,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
 Pair * upperBound(TreeMap * tree, void* key) 
 {
     TreeNode * aux = tree->root;
-    Pair * result = NULL;
+    Pair * ub = NULL;
     while (aux != NULL) {
         if (tree->lower_than(key, aux->pair->key) == 1) {
-            result = aux->pair;  // Actualizamos el resultado cada vez que encontramos un nodo menor
+            ub = aux->pair;  // Actualizamos el resultado cada vez que encontramos un nodo menor
             aux = aux->left;
         } else {
             aux = aux->right;
